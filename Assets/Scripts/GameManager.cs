@@ -14,22 +14,23 @@ public class GameManager : MonoBehaviour
     public GameObject lastCube;
     public GameObject mainCamera;
     public Text scoreText;
-    public bool isLeft;
-    public int score = 1;
 
+    public bool isLeft;
+    public bool isGameOn;
+    public int score = 1;
     public float level;
+
 
     private void Awake()
     {
         instance = this;
     }
 
-    void Start()
+    public void StartSpawnCube()
     {
         SpawnCube = Instantiate(SpawnCube);
         SpawnCube.GetComponent<MovingCube>().color = Color.HSVToRGB((level * 0.1f), 1f, 1f);
     }
-
     private void StopMoving()
     {
         FindObjectOfType<MovingCube>().moveSpeed = 0;
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
         SpawnCube = Instantiate(SpawnCube);
         ScoreIncrement();
         StartCoroutine(CameraMove(new Vector3(3, 4, 3) + new Vector3(0, level, 0)));
-        SpawnCube.GetComponent<MovingCube>().color = Color.HSVToRGB((level * 0.1f), 1f, 1f);
+        SpawnCube.GetComponent<MovingCube>().color = Color.HSVToRGB((level * 0.15f), 1f, 1f);
         FindObjectOfType<MovingCube>().moveSpeed = 1.5f;
     }
 

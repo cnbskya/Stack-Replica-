@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 3c89d4a069aeb344bb491a84f5ebfeaa
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Heavy Copper Gradient Italic
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 83b366e1ecd2fad41ac2a2f16a20c294, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

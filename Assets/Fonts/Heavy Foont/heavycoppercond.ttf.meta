@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 9671b55f211a7ff45813d4e5adebd581
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Heavy Copper Condensed
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 94a0ec388d080c44c9ab08215d4bba5e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

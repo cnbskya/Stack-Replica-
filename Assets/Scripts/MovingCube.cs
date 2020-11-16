@@ -9,6 +9,7 @@ public class MovingCube : MonoBehaviour
     public float moveSpeed = 1.5f;
     public Color color;
     public bool isPos = true;
+    public bool isGameOn;
 
     private void Start()
     {
@@ -68,6 +69,8 @@ public class MovingCube : MonoBehaviour
     public void DroppingObjectSize()
     {
         startCube = GameManager.instance.lastCube;
+
+        // -------------------------- SOLDAN GELME DURUMU --------------------------- //
         if (GameManager.instance.isLeft)
         {
             if (gameObject.transform.position.z > startCube.transform.position.z)
@@ -125,12 +128,7 @@ public class MovingCube : MonoBehaviour
         }
         else
         {
-            // ---------------------- SAĞDAN GELME DURUMU KONTROL EDİLECEK ------------------------------
-            // ---------------------- SAĞDAN GELME DURUMU KONTROL EDİLECEK ------------------------------
-            // ---------------------- SAĞDAN GELME DURUMU KONTROL EDİLECEK ------------------------------
-            // ---------------------- SAĞDAN GELME DURUMU KONTROL EDİLECEK ------------------------------
-            // ---------------------- SAĞDAN GELME DURUMU KONTROL EDİLECEK ------------------------------
-            // ---------------------- SAĞDAN GELME DURUMU KONTROL EDİLECEK ------------------------------
+            // ---------------------- SAĞDAN GELME DURUMU ------------------------------
             if (gameObject.transform.position.x > startCube.transform.position.x)
             {
                 if (gameObject.transform.position.x > startCube.transform.position.x + transform.localScale.x)

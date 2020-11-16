@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 878f1362d90090f43bb04b493506b789
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Heavy Copper
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 431e99946057c5b4d880c39be8644752, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
