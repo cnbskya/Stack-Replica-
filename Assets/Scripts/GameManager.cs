@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
         ScoreIncrement();
         StartCoroutine(CameraMove(new Vector3(3, 4, 3) + new Vector3(0, level, 0)));
         SpawnCube.GetComponent<MovingCube>().color = Color.HSVToRGB((level * 0.15f), 1f, 1f);
-        FindObjectOfType<MovingCube>().moveSpeed = 1.5f;
+        FindObjectOfType<MovingCube>().moveSpeed = 2f;
     }
 
     public void OnMouseDownEvent()

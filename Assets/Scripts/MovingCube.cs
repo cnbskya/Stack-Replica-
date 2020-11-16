@@ -6,7 +6,7 @@ using UnityEngine;
 public class MovingCube : MonoBehaviour
 {
     public GameObject startCube;
-    public float moveSpeed = 1.5f;
+    public float moveSpeed = 2f;
     public Color color;
     public bool isPos = true;
     public bool isGameOn;
