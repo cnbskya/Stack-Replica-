@@ -37,13 +37,13 @@ public class MovingCube : MonoBehaviour
     {
         if (GameManager.instance.isLeft)
         {
-            if (transform.position.z < 1.6 && isPos)
+            if (transform.position.z < 1.3 && isPos)
             {
                 transform.position += transform.forward * Time.deltaTime * moveSpeed;
             }
             else isPos = false;
 
-            if (transform.position.z >= -1.5f && isPos == false)
+            if (transform.position.z >= -1.3f && isPos == false)
             {
                 transform.position += transform.forward * -1 * Time.deltaTime * moveSpeed;
             }
@@ -51,13 +51,13 @@ public class MovingCube : MonoBehaviour
         }
         else
         {
-            if (transform.position.x < 1.6 && isPos)
+            if (transform.position.x < 1.3 && isPos)
             {
                 transform.position += transform.right * Time.deltaTime * moveSpeed;
             }
             else isPos = false;
 
-            if (transform.position.x >= -1.5f && isPos == false)
+            if (transform.position.x >= -1.3f && isPos == false)
             {
                 transform.position += transform.right * -1 * Time.deltaTime * moveSpeed;
             }
@@ -86,7 +86,6 @@ public class MovingCube : MonoBehaviour
                                                   Vector3.up * startCube.transform.lossyScale.y;
                 droppingCube.AddComponent<Rigidbody>(); //.drag = 16; // TEST 
                 droppingCube.GetComponent<BoxCollider>(); //.enabled = false; // TEST
-
                 droppingCube.GetComponent<Renderer>().material.SetColor("_Color", color);
 
                 Destroy(droppingCube, 1f);

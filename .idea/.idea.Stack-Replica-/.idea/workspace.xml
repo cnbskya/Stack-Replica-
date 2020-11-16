@@ -21,9 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8b22c1b0-d136-4d46-bbd2-4c5589b88045" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Stack-Replica-/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Stack-Replica-/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SpawnCube.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SpawnCube.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MovingCube.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MovingCube.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
