@@ -22,7 +22,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         SpawnCube = Instantiate(SpawnCube);
-        SpawnCube.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.HSVToRGB((level), 1f, 1f));
+        SpawnCube.GetComponent<MovingCube>().color = Color.HSVToRGB((level*0.1f), 1f, 1f);
+        //SpawnCube.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.HSVToRGB((level), 1f, 1f));
     }
 
     private void StopMoving()
@@ -32,12 +33,24 @@ public class GameManager : MonoBehaviour
         isLeft = !isLeft;
         lastCube = SpawnCube;
         SpawnCube = Instantiate(SpawnCube);
-        SpawnCube.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.HSVToRGB((level), 1f, 1f));
-        Camera.main.transform.position = new Vector3(3,4,3) + new Vector3(0,level,0);
+        StartCoroutine(CameraMove(new Vector3(3, 4, 3) + new Vector3(0, level, 0)));
+        SpawnCube.GetComponent<MovingCube>().color = Color.HSVToRGB((level*0.1f), 1f, 1f);
+        //SpawnCube.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.HSVToRGB((level), 1f, 1f));
+        
         FindObjectOfType<MovingCube>().moveSpeed = 1.5f;
     }
     public void OnMouseDownEvent()
     {
         StopMoving();
+    }
+
+    IEnumerator CameraMove(Vector3 target)
+    {
+        while (Vector3.Distance(Camera.main.transform.position, target) > 0.1f)
+        {
+            Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, target, Time.deltaTime);
+            yield return new WaitForEndOfFrame();
+        }
+        
     }
 }

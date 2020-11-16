@@ -21,11 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8b22c1b0-d136-4d46-bbd2-4c5589b88045" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Stack-Replica-/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Stack-Replica-/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/StartCubeMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/StartCubeMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/StartMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/StartMaterial.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SpawnCube.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SpawnCube.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MovingCube.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MovingCube.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MovingCube.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MovingCube.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +41,8 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/InputManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InputManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MovingCube.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
       </list>
     </option>
   </component>
@@ -89,7 +90,7 @@
       <workItem from="1605106986440" duration="908000" />
       <workItem from="1605166996153" duration="14890000" />
       <workItem from="1605252136333" duration="21861000" />
-      <workItem from="1605510962913" duration="10397000" />
+      <workItem from="1605510962913" duration="12886000" />
     </task>
     <servers />
   </component>

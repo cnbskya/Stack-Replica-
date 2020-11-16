@@ -7,9 +7,11 @@ public class MovingCube : MonoBehaviour
 {
     public GameObject startCube;
     public float moveSpeed = 1.5f;
+    public Color color;
 
     private void Start()
     {
+        GetComponent<Renderer>().material.SetColor("_Color", color);
         GameManager.instance.level += 0.1f;
         if (GameManager.instance.isLeft)
         {
@@ -56,11 +58,11 @@ public class MovingCube : MonoBehaviour
                 float fark = Mathf.Abs(startCube.transform.position.z - gameObject.transform.position.z);
                 GameObject droppingCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 droppingCube.transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, fark);
-                droppingCube.transform.position = Vector3.forward * (fark / 2 + startCube.transform.localScale.z / 2) + Vector3.up * transform.position.y;
+                droppingCube.transform.position = startCube.transform.position + Vector3.forward * (fark / 2 + startCube.transform.localScale.z / 2) + Vector3.up * startCube.transform.lossyScale.y;
                 droppingCube.AddComponent<Rigidbody>(); //.drag = 16; // TEST 
                 droppingCube.GetComponent<BoxCollider>(); //.enabled = false; // TEST
                 
-                droppingCube.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.HSVToRGB((GameManager.instance.level), 1f, 1f));
+                droppingCube.GetComponent<Renderer>().material.SetColor("_Color", color);
                 
                 Destroy(droppingCube, 1f);
 
@@ -81,11 +83,11 @@ public class MovingCube : MonoBehaviour
                 float fark = Mathf.Abs(startCube.transform.position.z - gameObject.transform.position.z);
                 GameObject droppingCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 droppingCube.transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, fark);
-                droppingCube.transform.position = Vector3.back * (fark / 2 + startCube.transform.localScale.z / 2) + Vector3.up * transform.position.y;
+                droppingCube.transform.position = startCube.transform.position +Vector3.back * (fark / 2 + startCube.transform.localScale.z / 2) + Vector3.up * startCube.transform.lossyScale.y;
                 droppingCube.AddComponent<Rigidbody>(); //.drag = 16; // TEST 
                 droppingCube.GetComponent<BoxCollider>(); //.enabled = false; // TEST
                 
-                droppingCube.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.HSVToRGB((GameManager.instance.level), 1f, 1f));
+                droppingCube.GetComponent<Renderer>().material.SetColor("_Color", color);
                 
                 Destroy(droppingCube, 1f);
 
@@ -114,12 +116,12 @@ public class MovingCube : MonoBehaviour
                 float fark = Mathf.Abs(startCube.transform.position.x - gameObject.transform.position.x);
                 GameObject droppingCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 droppingCube.transform.localScale = new Vector3(fark, transform.localScale.y,transform.localScale.z);
-                droppingCube.transform.position = Vector3.right * (fark / 2 + startCube.transform.localScale.x / 2) + Vector3.up * transform.position.y;
+                droppingCube.transform.position = startCube.transform.position + Vector3.right * (fark / 2 + startCube.transform.localScale.x / 2) + Vector3.up * startCube.transform.lossyScale.y;
                 
                 droppingCube.AddComponent<Rigidbody>(); //.drag = 16; // TEST 
                 droppingCube.GetComponent<BoxCollider>(); //.enabled = false; // TEST
                 
-                droppingCube.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.HSVToRGB((GameManager.instance.level), 1f, 1f));
+                droppingCube.GetComponent<Renderer>().material.SetColor("_Color", color);
                 
                 Destroy(droppingCube, 1f);
 
@@ -140,12 +142,12 @@ public class MovingCube : MonoBehaviour
                 float fark = Mathf.Abs(startCube.transform.position.x - gameObject.transform.position.x);
                 GameObject droppingCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 droppingCube.transform.localScale = new Vector3(fark, transform.localScale.y, transform.localScale.z);
-                droppingCube.transform.position = Vector3.left * (fark / 2 + startCube.transform.localScale.x / 2) + Vector3.up * transform.position.y;
+                droppingCube.transform.position = startCube.transform.position + Vector3.left * (fark / 2 + startCube.transform.localScale.x / 2) + Vector3.up * startCube.transform.lossyScale.y;
                 
                 droppingCube.AddComponent<Rigidbody>(); //.drag = 16; // TEST 
                 droppingCube.GetComponent<BoxCollider>(); //.enabled = false; // TEST
                 
-                droppingCube.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.HSVToRGB((GameManager.instance.level), 1f, 1f));
+                droppingCube.GetComponent<Renderer>().material.SetColor("_Color", color);
                 
                 Destroy(droppingCube, 3);
 
