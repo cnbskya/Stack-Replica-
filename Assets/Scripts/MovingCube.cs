@@ -80,56 +80,81 @@ public class MovingCube : MonoBehaviour
                     gameObject.AddComponent<Rigidbody>();
                     InputManager.instance.GameOverUI.SetActive(true);
                     InputManager.instance.gameInUI.SetActive(false);
+                    SoundManager.instance.PlayGameOver();
                     return;
                 }
 
                 float fark = Mathf.Abs(startCube.transform.position.z - gameObject.transform.position.z);
-                GameObject droppingCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                droppingCube.transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, fark);
-                droppingCube.transform.position = startCube.transform.position +
-                                                  Vector3.forward * (fark / 2 + startCube.transform.localScale.z / 2) +
-                                                  Vector3.up * startCube.transform.lossyScale.y;
-                droppingCube.AddComponent<Rigidbody>(); //.drag = 16; // TEST 
-                droppingCube.GetComponent<BoxCollider>(); //.enabled = false; // TEST
-                droppingCube.GetComponent<Renderer>().material.SetColor("_Color", color);
+                if (fark >0.04f)
+                {
+                    SoundManager.instance.PlayDropCube();
+                    GameObject droppingCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    droppingCube.transform.localScale =
+                        new Vector3(transform.localScale.x, transform.localScale.y, fark);
+                    droppingCube.transform.position = startCube.transform.position +
+                                                      Vector3.forward *
+                                                      (fark / 2 + startCube.transform.localScale.z / 2) +
+                                                      Vector3.up * startCube.transform.lossyScale.y;
+                    droppingCube.AddComponent<Rigidbody>(); //.drag = 16; // TEST 
+                    droppingCube.GetComponent<BoxCollider>(); //.enabled = false; // TEST
+                    droppingCube.GetComponent<Renderer>().material.SetColor("_Color", color);
 
-                Destroy(droppingCube, 1f);
+                    Destroy(droppingCube, 1f);
 
-                Vector3 remainingScale = gameObject.transform.localScale;
-                remainingScale.z -= fark;
-                transform.localScale = remainingScale;
-                transform.position += Vector3.back * fark / 2;
+                    Vector3 remainingScale = gameObject.transform.localScale;
+                    remainingScale.z -= fark;
+                    transform.localScale = remainingScale;
+                    transform.position += Vector3.back * fark / 2;
+                    SoundManager.instance.perfectCount = 0;
+                }
+                else
+                {
+                    GameManager.instance.SpawnCube.transform.position =
+                        GameManager.instance.lastCube.transform.position + Vector3.up * 0.1f;
+                    SoundManager.instance.PlayPerfectTime();
+                }
             }
 
             if (gameObject.transform.position.z < startCube.transform.position.z)
             {
                 if (gameObject.transform.position.z < startCube.transform.position.z - transform.localScale.z)
                 {
-                    
                     gameObject.AddComponent<Rigidbody>();
                     InputManager.instance.GameOverUI.SetActive(true);
                     InputManager.instance.gameInUI.SetActive(false);
-
+                    SoundManager.instance.PlayGameOver();
                     return;
                 }
 
                 float fark = Mathf.Abs(startCube.transform.position.z - gameObject.transform.position.z);
-                GameObject droppingCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                droppingCube.transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, fark);
-                droppingCube.transform.position = startCube.transform.position +
-                                                  Vector3.back * (fark / 2 + startCube.transform.localScale.z / 2) +
-                                                  Vector3.up * startCube.transform.lossyScale.y;
-                droppingCube.AddComponent<Rigidbody>(); //.drag = 16; // TEST 
-                droppingCube.GetComponent<BoxCollider>(); //.enabled = false; // TEST
+                if (fark >0.04f)
+                {
+                    SoundManager.instance.PlayDropCube();
+                    GameObject droppingCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    droppingCube.transform.localScale =
+                        new Vector3(transform.localScale.x, transform.localScale.y, fark);
+                    droppingCube.transform.position = startCube.transform.position +
+                                                      Vector3.back * (fark / 2 + startCube.transform.localScale.z / 2) +
+                                                      Vector3.up * startCube.transform.lossyScale.y;
+                    droppingCube.AddComponent<Rigidbody>(); //.drag = 16; // TEST 
+                    droppingCube.GetComponent<BoxCollider>(); //.enabled = false; // TEST
 
-                droppingCube.GetComponent<Renderer>().material.SetColor("_Color", color);
+                    droppingCube.GetComponent<Renderer>().material.SetColor("_Color", color);
 
-                Destroy(droppingCube, 1f);
+                    Destroy(droppingCube, 1f);
 
-                Vector3 remainingScale = gameObject.transform.localScale;
-                remainingScale.z -= fark;
-                transform.localScale = remainingScale;
-                transform.position += Vector3.forward * fark / 2;
+                    Vector3 remainingScale = gameObject.transform.localScale;
+                    remainingScale.z -= fark;
+                    transform.localScale = remainingScale;
+                    transform.position += Vector3.forward * fark / 2;
+                    SoundManager.instance.perfectCount = 0;
+                }
+                else
+                {
+                    GameManager.instance.SpawnCube.transform.position =
+                        GameManager.instance.lastCube.transform.position + Vector3.up * 0.1f;
+                    SoundManager.instance.PlayPerfectTime();
+                }
             }
         }
         else
@@ -142,27 +167,41 @@ public class MovingCube : MonoBehaviour
                     gameObject.AddComponent<Rigidbody>();
                     InputManager.instance.GameOverUI.SetActive(true);
                     InputManager.instance.gameInUI.SetActive(false);
+                    SoundManager.instance.PlayGameOver();
                     return;
                 }
 
                 float fark = Mathf.Abs(startCube.transform.position.x - gameObject.transform.position.x);
-                GameObject droppingCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                droppingCube.transform.localScale = new Vector3(fark, transform.localScale.y, transform.localScale.z);
-                droppingCube.transform.position = startCube.transform.position +
-                                                  Vector3.right * (fark / 2 + startCube.transform.localScale.x / 2) +
-                                                  Vector3.up * startCube.transform.lossyScale.y;
+                if (fark >0.04f)
+                {
+                    SoundManager.instance.PlayDropCube();
+                    GameObject droppingCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    droppingCube.transform.localScale =
+                        new Vector3(fark, transform.localScale.y, transform.localScale.z);
+                    droppingCube.transform.position = startCube.transform.position +
+                                                      Vector3.right *
+                                                      (fark / 2 + startCube.transform.localScale.x / 2) +
+                                                      Vector3.up * startCube.transform.lossyScale.y;
 
-                droppingCube.AddComponent<Rigidbody>(); //.drag = 16; // TEST 
-                droppingCube.GetComponent<BoxCollider>(); //.enabled = false; // TEST
+                    droppingCube.AddComponent<Rigidbody>(); //.drag = 16; // TEST 
+                    droppingCube.GetComponent<BoxCollider>(); //.enabled = false; // TEST
 
-                droppingCube.GetComponent<Renderer>().material.SetColor("_Color", color);
+                    droppingCube.GetComponent<Renderer>().material.SetColor("_Color", color);
 
-                Destroy(droppingCube, 1f);
+                    Destroy(droppingCube, 1f);
 
-                Vector3 remainingScale = gameObject.transform.localScale;
-                remainingScale.x -= fark;
-                transform.localScale = remainingScale;
-                transform.position += Vector3.left * fark / 2;
+                    Vector3 remainingScale = gameObject.transform.localScale;
+                    remainingScale.x -= fark;
+                    transform.localScale = remainingScale;
+                    transform.position += Vector3.left * fark / 2;
+                    SoundManager.instance.perfectCount = 0;
+                }
+                else
+                {
+                    GameManager.instance.SpawnCube.transform.position =
+                        GameManager.instance.lastCube.transform.position + Vector3.up * 0.1f;
+                    SoundManager.instance.PlayPerfectTime();
+                }
             }
 
             if (gameObject.transform.position.x < startCube.transform.position.x)
@@ -172,28 +211,41 @@ public class MovingCube : MonoBehaviour
                     gameObject.AddComponent<Rigidbody>();
                     InputManager.instance.GameOverUI.SetActive(true);
                     InputManager.instance.gameInUI.SetActive(false);
+                    SoundManager.instance.PlayGameOver();
                     return;
                 }
 
                 float fark = Mathf.Abs(startCube.transform.position.x - gameObject.transform.position.x);
-                GameObject droppingCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                droppingCube.transform.localScale = new Vector3(fark, transform.localScale.y, transform.localScale.z);
-                droppingCube.transform.position = startCube.transform.position +
-                                                  Vector3.left * (fark / 2 + startCube.transform.localScale.x / 2) +
-                                                  Vector3.up * startCube.transform.lossyScale.y;
+                if (fark > 0.04f)
+                {
+                    SoundManager.instance.PlayDropCube();
+                    GameObject droppingCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    droppingCube.transform.localScale =
+                        new Vector3(fark, transform.localScale.y, transform.localScale.z);
+                    droppingCube.transform.position = startCube.transform.position +
+                                                      Vector3.left * (fark / 2 + startCube.transform.localScale.x / 2) +
+                                                      Vector3.up * startCube.transform.lossyScale.y;
 
-                droppingCube.AddComponent<Rigidbody>(); //.drag = 16; // TEST 
-                droppingCube.GetComponent<BoxCollider>(); //.enabled = false; // TEST
+                    droppingCube.AddComponent<Rigidbody>(); //.drag = 16; // TEST 
+                    droppingCube.GetComponent<BoxCollider>(); //.enabled = false; // TEST
 
-                droppingCube.GetComponent<Renderer>().material.SetColor("_Color", color);
+                    droppingCube.GetComponent<Renderer>().material.SetColor("_Color", color);
 
-                Destroy(droppingCube, 3);
+                    Destroy(droppingCube, 3);
 
-                Vector3 remainingScale = gameObject.transform.localScale;
-                remainingScale.x -= fark;
-                transform.localScale = remainingScale;
+                    Vector3 remainingScale = gameObject.transform.localScale;
+                    remainingScale.x -= fark;
+                    transform.localScale = remainingScale;
 
-                transform.position += Vector3.right * fark / 2;
+                    transform.position += Vector3.right * fark / 2;
+                    SoundManager.instance.perfectCount = 0;
+                }
+                else
+                {
+                    GameManager.instance.SpawnCube.transform.position =
+                        GameManager.instance.lastCube.transform.position + Vector3.up * 0.1f;
+                    SoundManager.instance.PlayPerfectTime();
+                }
             }
         }
     }

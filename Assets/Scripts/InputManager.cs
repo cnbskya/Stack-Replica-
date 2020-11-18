@@ -29,6 +29,7 @@ public class InputManager : MonoBehaviour
             ResumeGame();
             uıIsActif = false;
             GameManager.instance.StartSpawnCube();
+            SoundManager.instance.PlayStartGameSoundActive();
         }
         else if (Input.GetMouseButtonDown(0))
         {
