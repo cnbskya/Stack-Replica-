@@ -37,11 +37,15 @@ public class GameManager : MonoBehaviour
         SpawnCube.GetComponent<MovingCube>().DroppingObjectSize();
         isLeft = !isLeft;
         lastCube = SpawnCube;
-        SpawnCube = Instantiate(SpawnCube);
-        ScoreIncrement();
-        StartCoroutine(CameraMove(new Vector3(3, 4, 3) + new Vector3(0, level, 0)));
-        SpawnCube.GetComponent<MovingCube>().color = Color.HSVToRGB((level * 0.15f), 1f, 1f);
-        FindObjectOfType<MovingCube>().moveSpeed = 2f;
+        if (InputManager.instance.GameOverUI.activeSelf == false)
+        {
+            SpawnCube = Instantiate(SpawnCube);
+            ScoreIncrement();
+            StartCoroutine(CameraMove(new Vector3(3, 4, 3) + new Vector3(0, level, 0)));
+            SpawnCube.GetComponent<MovingCube>().color = Color.HSVToRGB((level * 0.1f), 1f, 1f);
+            FindObjectOfType<MovingCube>().moveSpeed = 2f;
+        }
+        
     }
 
     public void OnMouseDownEvent()

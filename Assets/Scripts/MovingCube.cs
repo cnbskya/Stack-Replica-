@@ -78,6 +78,8 @@ public class MovingCube : MonoBehaviour
                 if (gameObject.transform.position.z > startCube.transform.position.z + transform.localScale.z)
                 {
                     gameObject.AddComponent<Rigidbody>();
+                    InputManager.instance.GameOverUI.SetActive(true);
+                    InputManager.instance.gameInUI.SetActive(false);
                     return;
                 }
 
@@ -103,7 +105,11 @@ public class MovingCube : MonoBehaviour
             {
                 if (gameObject.transform.position.z < startCube.transform.position.z - transform.localScale.z)
                 {
+                    
                     gameObject.AddComponent<Rigidbody>();
+                    InputManager.instance.GameOverUI.SetActive(true);
+                    InputManager.instance.gameInUI.SetActive(false);
+
                     return;
                 }
 
@@ -134,6 +140,8 @@ public class MovingCube : MonoBehaviour
                 if (gameObject.transform.position.x > startCube.transform.position.x + transform.localScale.x)
                 {
                     gameObject.AddComponent<Rigidbody>();
+                    InputManager.instance.GameOverUI.SetActive(true);
+                    InputManager.instance.gameInUI.SetActive(false);
                     return;
                 }
 
@@ -162,6 +170,8 @@ public class MovingCube : MonoBehaviour
                 if (gameObject.transform.position.x < startCube.transform.position.x - transform.localScale.x)
                 {
                     gameObject.AddComponent<Rigidbody>();
+                    InputManager.instance.GameOverUI.SetActive(true);
+                    InputManager.instance.gameInUI.SetActive(false);
                     return;
                 }
 

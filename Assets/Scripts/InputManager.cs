@@ -7,14 +7,17 @@ using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour
 {
+    public static InputManager instance;
     public GameObject startMenuUI;
     public GameObject gameInUI;
+    public GameObject GameOverUI;
     public bool uıIsActif;
     private Scene _scene;
     
 
     private void Start()
     {
+        instance = this;
         _scene = SceneManager.GetActiveScene();
     }
 
@@ -24,7 +27,6 @@ public class InputManager : MonoBehaviour
         {
             GameManager.instance.isGameOn = true;
             ResumeGame();
-            GameInUI();
             uıIsActif = false;
             GameManager.instance.StartSpawnCube();
         }
@@ -34,7 +36,6 @@ public class InputManager : MonoBehaviour
             {
                 GameManager.instance.OnMouseDownEvent();
             }
-           
         }
     }
     public void RestartGameButton()
@@ -44,10 +45,6 @@ public class InputManager : MonoBehaviour
     void ResumeGame()
     {
         startMenuUI.SetActive(false);
-    }
-
-    void GameInUI()
-    {
         gameInUI.SetActive(true);
     }
 }
